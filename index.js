@@ -58,17 +58,18 @@ function ex4() {
 
 // Bài 5: Tìm số chẵn cuối cùng trong mảng. Nếu mảng không có giá trị chẵn thì trả về -1.
 function ex5() {
-    var number = document.getElementById("num6").value;
+    var number = document.getElementById("num5").value;
     var arr = number.split(",");
-    document.getElementById("result4").innerHTML = arr;
-    var temp;
-    var i;
-    var j;
-    temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-
-    document.getElementById("resultBT4").innerHTML = arr;
+    document.getElementById("result5").innerHTML = arr;
+    var endEven;
+    for (var i = arr.length - 1; i >= 0; i--) {
+        if ((arr[i] * 1) % 2 === 0) {
+            endEven = arr[i] * 1;
+            break;
+        }
+        return -1;
+    }
+    document.getElementById("resultBT5").innerHTML = endEven;
 
 }
 
@@ -97,14 +98,82 @@ function ex7() {
     var number = document.getElementById("num7").value;
     var arr = number.split(",");
     document.getElementById("result7").innerHTML = arr;
-    var arr = [1, 4, 3, 5, 2, 6, 9, 7];
-    var temp;
-    if (a[i] * 1 > a[i + 1] * 1) {
-        temp = a[i] * 1;
-        (arr[i] * 1) = (arr[i + 1] * 1);
-        (arr[i + 1] * 1) = temp;
-
+    var temp = 0;
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
     }
     document.getElementById("resultBT7").innerHTML = arr;
 
+}
+
+// Bài 8: Tìm số nguyên tố đầu tiên trong mảng. Nếu mảng không có số nguyên tố thì trả về – 1.
+
+function checkPrime(n) {
+    if (n < 2)
+        return 0;
+    for (var i = 2; i < n; i++)
+        if (n % i == 0)
+            return 0;
+    return 1;
+}
+
+function ex8() { //chưa xong
+    var number = document.getElementById("num8").value;
+    var arr = number.split(",");
+    document.getElementById("result8").innerHTML = arr;
+    var firstPrime;
+    for (var i = 0; i < arr.length; i++) {
+        if (checkPrime(arr[i] * 1) === 1) {
+            firstPrime = (arr[i] * 1);
+            break;
+        }
+        return -1;
+    }
+
+    document.getElementById("resultBT8").innerHTML = firstPrime;
+}
+// Bài 9: Nhập thêm 1 mảng số thực, tìm xem trong mảng có bao nhiêu số nguyên?.
+
+function ex9() {
+    var number = document.getElementById("num9").value;
+    var arr = number.split(",");
+    document.getElementById("result9").innerHTML = arr;
+    var count = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (Number.isInteger(arr[i] * 1) === true) {
+            count++;
+        }
+    }
+    document.getElementById("resultBT9").innerHTML = count;
+}
+
+// Bài 10: So sánh số lượng số dương và số lượng số âm xem số nào nhiều hơn.
+function ex10() {
+    var number = document.getElementById("num10").value;
+    var arr = number.split(",");
+    document.getElementById("result10").innerHTML = arr;
+    var count1 = 0;
+    var count2 = 0;
+    result = " ";
+    for (var i = 0; i < arr.length; i++) {
+        if ((arr[i] * 1) > 0) {
+            count1++;
+        } else {
+            count2++;
+        }
+    }
+    if (count1 > count2) {
+        result = "Số dương nhiều hơn";
+    } else if (count1 < count2) {
+        result = "Số âm nhiều hơn";
+    } else {
+        result = "Bằng nhau";
+    }
+    document.getElementById("resultBT10").innerHTML = result;
 }
