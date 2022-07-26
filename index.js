@@ -61,6 +61,7 @@ function ex5() {
     var number = document.getElementById("num5").value;
     var arr = number.split(",");
     document.getElementById("result5").innerHTML = arr;
+
     var endEven;
     for (var i = arr.length - 1; i >= 0; i--) {
         if ((arr[i] * 1) % 2 === 0) {
@@ -101,7 +102,7 @@ function ex7() {
     var temp = 0;
     for (var i = 0; i < arr.length; i++) {
         for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) {
+            if ((arr[i] * 1) > (arr[j] * 1)) {
                 temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
@@ -177,3 +178,5 @@ function ex10() {
     }
     document.getElementById("resultBT10").innerHTML = result;
 }
+
+// Có cách nào lấy giá trị mảng số luôn không ạ? Em dùng split n ra mảng chuỗi nên lấy gtri phải x1.Nếu có, phiền anh note vào file index.js trong github e với ạ . Em cảm ơn rất nhiều ạ!
